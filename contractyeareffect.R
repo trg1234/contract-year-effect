@@ -50,9 +50,11 @@ cleaned <- cleaned %>%
 cleaned.notot <- cleaned %>%
   filter(team != "TOT")
 
-
-
-names(nba)<-make.names(names(nba), unique=TRUE)
+## -------------------------------------------------------------------------
+##
+## Fixed Effect OLS
+##
+## -------------------------------------------------------------------------
 
 reg <- lm(formula = AVG.SPEED ~ contract_year + MIN + 
             Player + as.factor(Year) + Salary.Current, data = nba, weights = nba$MIN)
