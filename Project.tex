@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb,amsmath,amsfonts,eurosym,geometry,ulem,graphicx,caption,color,setspace,sectsty,comment,footmisc,caption,natbib,pdflscape,subfigure,array,hyperref}
+\usepackage{bbm, mathspec}
+
+\setcitestyle{authoryear,open={(},close={)}}
+
+\onehalfspacing
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\newtheorem{hyp}{Hypothesis}
+\newtheorem{subhyp}{Hypothesis}[hyp]
+\renewcommand{\thesubhyp}{\thehyp\alph{subhyp}}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\arraybackslash\hspace{0pt}}m{#1}}
+
+\geometry{left=1.0in,right=1.0in,top=1.0in,bottom=1.0in}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\title{Contract Year Effect in the NBA\thanks{We would like to thank Dr. Hortaçsu and Francisco del Villar Ortiz Mena for their unique insights.}}
+		\author{Changhao Shi\thanks{University of Chicago} \and Jonathan Liu\thanks{University of Chicago} \and Terry II Culpepper\thanks{University of Chicago}}
+		\date{\today}
+		\maketitle
+		\begin{abstract}
+			\noindent We investigate whether being in a contract year has an effect on NBA players by motivating them to put in more effort on playing. We use player statistics such as distance covered on the field per minute as a proxy for effort. We tackle three main challenges arising from the data: lack of a good proxy for effort, inter-correlation of effort between players, and player-specific effects on player statistics and outcomes. Using an OLS regression controlling for individual fixed effects and a double LASSO regression, we found that being in a contract year has no statistically significant impact on various measures of player effort. \\
+			\vspace{0in}\\
+			\noindent\textbf{Keywords:} Sports Economics, Athletes, Contracts\\
+			\vspace{0in}\\
+			\noindent\textbf{JEL Codes:} Z20, Z22 \\
+			
+			\bigskip
+		\end{abstract}
+		\setcounter{page}{0}
+		\thispagestyle{empty}
+	\end{titlepage}
+	\pagebreak \newpage
+	
+
+
+	
+	\doublespacing
+	
+	
+	\section{Introduction} \label{sec:introduction}
+	
+	\section{Literature Review} \label{sec:literature}
+	
+	\section{Data} \label{sec:data}
+	
+	\subsection{title}
+	
+	\subsection{Model and Analysis}
+	
+	Challenges in estimating the contract year effect fall under three categories. Firstly, player effort cannot be observed, and existing metrics such as distance covered on the field per minute may only be loosely correlated with player effort. For example, a player may put in effort by perfecting 3-point throws and so roughly run the same amount of distance but attempt more 3-point shots per game. Another player may put in effort by running longer each game to gain tactical advantage on a field. It is also possible that the player's effort fails to translate into an observable metric; for example, he might put in effort into team-building exercises and coordinate much more on the field. This also brings us to the next challenge. The effort put in by a particular player may also correlate with other players' performance. Since basketball is a team game, effort put in by one player may synergize with effort put in by other players. We can also look at this issue game-theoretically. Consider the standard public goods game, and let $y_i$ be the energy of the player $i$ devoted to the match, out of a total of $1$ endowed unit of energy. The payoff function for player $i$ can be thought of as \[
+	\Pi_i = \left(1 - y_i\right) + \alpha \sum_{j} y_j
+	\] where $0<\alpha<1$. The sum of the players' effort correlates positively with the expected probability of winning a match. When $\alpha<1$, the Nash equilibrium of this game is for all players to invest $0$ energy into the match. However, when factoring in social norms, we expect players to fall into two categories. Based on empirical evidence, players will either put in more of their endowment when others put in more, or put in less when others put in more \citep{dong_dynamics_2016}. Regardless, this makes estimating the contract year effect more difficult, as the effort devoted by an individual correlates with the effort of other individuals. Furthermore, this correlation is ex-ante unknown. The final challenge lies in the heterogeneity in different individuals. Even if we assume that the first two challenges are resolved, and that all players reflect their effort by pursuing, for instance, more three-point shots per minute, underlying unobserved parameters such as player skill and talent, player psychology during matches, and the correlation of the contract year effect with other covariates such as current salary means that individual fixed effects cannot be ignored.
+	
+	To counteract the first challenge, we run multiple regressions with different outcome variables, such as player distance traveled per minute on the field and three point shot percentage. This partially circumvents the issue that proxies could be loosely correlated with player effort by looking at how being on a contract year affects a wide range of player statistics, instead of an individual measurement. To counteract the second challenge, we have to assume that the underlying correlation between players due to effort is homogeneous across teams. Then we can estimate the contract year effect on teams by looking at how many members are in a contract year and look at team level statistics. Finally, to counteract the third challenge, we control for fixed effects in our regression by adding indicator variables for players or teams as a covariate.
+	
+	\subsection{Controlling for Fixed Effects}
+	
+	To control for fixed effects (omitted variables of an individual), we add indicator variables for players or teams as a covariate. This, along with the existing controls, gives us the regression model \[
+	y_{it} = \sum_{j=1}^N \alpha_j \mathbbm{1}\left\lbrace i= j \right\rbrace + \mathbbm{1}\left\lbrace i_t\in \mathrm{Contract} \right\rbrace\beta + c_{it}'\gamma + u_{it}
+	\] where $y_{it}$ is the outcome player statistics for player $i$ in time period $t$, $\mathbbm{1}\left\lbrace i= j \right\rbrace$ is the indicator variable for players, $\mathbbm{1}\left\lbrace i_t\in \mathrm{Contract} \right\rbrace$ is the indicator variable for whether a player is in a contract year in a given time period, and $c_{it}$ are various controls, such as age and current salary. The identifying assumption is then that unobservable effects soaked up by the individual indicator variable that simultaneously affect the outcome player statistics and the explanatory variable and covariates are time-invariant. In other words, \[
+	\mathrm{Cov}\left(x_{i1}, u_{it}\right) = \dots = \mathrm{Cov}\left(x_{iT}, u_{it}\right) = 0,
+	\] where $x$ includes both the explanatory variable and the controls. This assumption is innocuous enough in this context. We don't expect unobserved characteristics (omitted variables) of an individual to change dramatically across years that also affect whether a given player is in a contract year. For example, a player may get married and be very happy that year. This would cause him to play better, therefore increasing his performance and we will see a change in his player statistics. However it is unlikely that it will affect whether he is in a given contract year, as that aspect largely depends on how many years ago the player signed the contract.
+	
+	\section{Results} \label{sec:result}
+	
+	\section{Discussions} \label{sec:discussion}
+	
+	\section{Conclusion} \label{sec:conclusion}
+	
+	
+	
+	\singlespacing
+	\bibliographystyle{abbrvnat}
+	\bibliography{citations}
+	
+	
+	
+	\clearpage
+	
+	\onehalfspacing
+	
+	\section*{Tables} \label{sec:tab}
+	\addcontentsline{toc}{section}{Tables}
+	
+	
+	
+	\clearpage
+	
+	\section*{Figures} \label{sec:fig}
+	\addcontentsline{toc}{section}{Figures}
+	
+	%\begin{figure}[hp]
+	%  \centering
+	%  \includegraphics[width=.6\textwidth]{../fig/placeholder.pdf}
+	%  \caption{Placeholder}
+	%  \label{fig:placeholder}
+	%\end{figure}
+	
+	
+	
+	
+	\clearpage
+	
+	\section*{Appendix A. Placeholder} \label{sec:appendixa}
+	\addcontentsline{toc}{section}{Appendix A}
+	
+	
+\end{document}

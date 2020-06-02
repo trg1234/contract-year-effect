@@ -1,0 +1,370 @@
+\documentclass[12pt,aspectratio=169]{beamer} %for wide screen, use aspectratio=169
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{spverbatim}
+\usepackage{mathabx}
+\usepackage{xypic}
+\usepackage{xr}
+
+\usepackage{fancyhdr}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{bbm}
+\usepackage{bm}
+\usepackage{concmath}
+\usepackage{cmbright}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{nccmath}
+
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\ra}{\rightarrow}
+
+\DeclareMathOperator*{\argmin}{\arg\min}
+\DeclareMathOperator*{\argmax}{\arg\max}
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathbb{V}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+\newcommand{\lb}{\left\lbrace}
+\newcommand{\rb}{\right\rbrace}
+
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\usetikzlibrary{automata,positioning}
+% Specify theme
+\usetheme{UnofficialUChicago}
+
+\usefonttheme{serif}
+
+\usepackage{beton}
+\usepackage[T1]{fontenc}
+
+ %\setbeamertemplate{footline}[frame number]{} % Uncomment this line if you want to remove the footer from each slide (and replace it with just the slide number (X/Y) in the bottom right of each slide.
+
+
+
+
+%===============================================================%
+% 				BEGIN YOUR PRESENTATION HERE					%
+%===============================================================%
+
+% Title and author information
+\title[Contract Year Effect]{Contract Year Effect in the NBA}
+\author{Charles Shi, Jonathan Liu, Terry II Culpepper}
+\institute[]{University of Chicago}
+\date{\today}
+
+
+%  \usepackage[sfmath]{kpfonts}
+%  \renewcommand*\familydefault{\sfdefault}
+
+%\setbeamerfont{frametitle}{shape=\scshape}
+
+%===============================================================%
+\begin{document}
+%===============================================================%
+
+\maketitle
+
+
+
+%===============================================================%
+\section{Introduction}
+%===============================================================%
+
+\begin{frame}{Introduction}
+Teacher unions have been a focal debate point for decades. 
+\bigskip
+
+\onslide<2,3,4>{Some argue that teacher unions act as a monopoly, decrease competition, and therefore decrease educational quality. Others argue that it brings in more money for teachers to invest in education.}
+
+\bigskip
+
+\onslide<3,4>{Research on this topic is ambiguous.}
+
+\bigskip
+
+\onslide<4>{Treat teacher unions like a collusive oligopoly - does the market power influence educational quality?}
+\end{frame}
+
+\begin{frame}{Why?}
+
+Ambiguity on this topic suggests it may not be merely the presence of a union or lack thereof that affects educational quality. The focus on market power is our contribution to the literature.
+
+\bigskip
+
+\onslide<2,3>{Ex: Efficient wage hypothesis? Higher market power increases wage and teachers become more motivated.}
+
+\bigskip
+
+\onslide<3>{Market power =/= union power. Union power incorporates intangible effects like the internal solidarity of its members and political activism; market power takes into account the market mechanisms between teacher unions and school districts.}
+
+\end{frame}
+
+%===============================================================%
+\section{Background}
+%===============================================================%
+
+\begin{frame}{Key Statistics}
+
+
+Itemized lists are punctuated by little shields
+
+\begin{itemize}
+	\item Item
+	\item Item
+	\begin{itemize}
+		\item Sub-item
+		\item Sub-item
+	\end{itemize}
+	\item Item
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Literature}
+
+
+The literature does not typically treat union behavior as firm behavior.
+
+\begin{itemize}
+	\item Focused on aspects where unions may impact teacher performance.
+	\item Focused on indirect effect that unions may have on teacher performance.
+	\item Literature does treat unions as a form of imperfect competition.
+	\begin{itemize}
+		\item Johnson and Ashenfeller (1969) - role of bargaining power
+		\item Booth (2014) - imperfect labor competition arising from trade unions
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Literature}
+
+
+What about education?
+
+\begin{itemize}
+	\item Cowen and Strunk (2015)
+	\begin{itemize}
+		\item Modest negative impact on student quality
+		\item Propogation of rent seeking behavior
+	\end{itemize}
+	\item Lott and Kenny (2013)
+	\begin{itemize}
+		\item Decline in student performance after negotiation with teacher unions.
+	\end{itemize}
+	
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Literature}
+
+\begin{itemize}
+	
+	\item Baron (2018)
+	\begin{itemize}
+		\item Wisconsin Act 10 limited the power of teachers' unions
+		\item In the short run, Act 10, the law reduced average test scores.
+	\end{itemize}
+	\item Baron (2019)
+	\begin{itemize}
+		\item One year on, the increase in teacher supply due to Act 10 increased average test scores.
+		\item Time is a factor.
+	\end{itemize}
+	\item More literature showing various results
+\end{itemize}
+\end{frame}
+
+%===============================================================%
+\section{Market Structure}
+%===============================================================%
+
+\begin{frame}{Market Structure}
+	\begin{itemize}
+		\item Upstream firm: Teacher Union
+		\begin{itemize}
+			\item Consists of multiple teachers, acting like small, individual firms
+			\item In a collusion
+			\item Members may have incentive to leave the union/collusion
+			\item $R$ can be thought of as the aggregate wage income
+			\item $c\left(\cdot\right)$, the cost, can be thought of as
+			\begin{enumerate}
+				\item Disutility of labor
+				\item Cost of maintaining the teacher's body and soul.
+			\end{enumerate}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Market Structure}
+\begin{itemize}
+	\item Downstream firm: School District
+	\begin{itemize}
+		\item Purchases educational services (from teachers)
+		\item Maximizes profit / educational outcome on three goods:
+		\begin{enumerate}
+			\item Educational services
+			\item Support services (schoolbus, administration)
+			\item Other (food etc.)
+		\end{enumerate}
+	\end{itemize}
+	\item Consumer: Parents \& Students
+	\begin{itemize}
+		\item We focus mostly on the interaction between the upstream and downstream firms: teacher union and school district.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+%===============================================================%
+\section{Model}
+%===============================================================%
+
+\begin{frame}{Generalized Lerner Index}
+Assume:
+
+\begin{itemize}
+	\item Teachers are homogeneous in skill and quality
+	\item Unionized and non-unionized teachers have similar working hours (homogeneity)
+\end{itemize}
+
+This ensures that we can use union participation rates as a proxy for market share. Then we can estimate the market power of the teacher union with the Generalized Lerner Index:
+	\[
+	L = -\frac{s_i}{\epsilon_d}
+	\]
+
+$L$ and $s_i$ are the market power and market share of the teacher union; $\epsilon_d$ is the elasticity of demand for educational services with respect to price.
+\end{frame}
+
+\begin{frame}{Estimating the elasticity of demand}
+We use the \textbf{Almost Ideal Demand System (AIDS)} method (Deaton and Muellbauer (1980)):
+
+School districts act as a representative firm/consumer and has expenditure function
+	
+	\[
+	c\left(\mathbf{p}, u\right) = \left(a \left(\mathbf{p}\right)^\alpha \left(1 - u\right) + b\left(\mathbf{p}\right)^\alpha u\right)^{1/\alpha}
+	\]
+
+With some derivation we obtain a tractable demand function:
+
+\[
+w_E = \alpha_E + \sum_k \gamma_{E, k} \ln p_k + \beta_E \ln \left(\frac{w}{P}\right)
+\]
+
+where $w$ is the total expenditure, $w_E$ is the expenditure share on educational services, and $P$ is the price index.
+\end{frame}
+
+\begin{frame}{Price Index}
+
+The price index has the formula
+
+\[
+\ln P := \alpha_0 + \sum_k \alpha_k \ln p_k + \frac{1}{2} \sum_k\sum_j \gamma_{k,j}^* \ln p_k \ln p_j.
+\]
+
+To estimate the price index, we follow Feenstra et al.'s (1999) strategy and approximate $P$ with the Divisia index:
+
+\[
+\ln P = \left[\frac{1}{6}\mathbf{w}_0 + \frac{2}{3}\mathbf{w}_{0.5} + \frac{1}{6}\mathbf{w}_1\right]\cdot \ln \left(\frac{p_1}{p_0}\right)
+\]
+where $p_0, p_1$ are the price index vectors for our three goods at some initial period and final period and $\mathbf{w}_i$ are the expenditure share vectors in the initial, middle, and final period. We will take the initial, middle, and final periods as consecutive years.
+\end{frame}
+
+\begin{frame}{Price Index}
+
+For the price index for each of the three goods, we use the revenue-share-weighted average of the price of each component within this group. Ex:
+
+\[
+p_E = \sum_{i\in E} \omega_i p_i.
+\]
+
+where $\omega_i$ is the revenue share of component $i$ of good $E$ (instructional services). After the regression model which gives us $\gamma_{E, k}$, we can estimate the Marshallian self-price elasticity of educational services with
+
+\[
+\epsilon^M_E = -1 + \left(\frac{\gamma_{E,E}}{w_E}\right) - \beta_E
+\]
+
+From this, we can then estimate the market power of the teacher union with some assumptions.
+\end{frame}
+
+%===============================================================%
+\section{Data Analysis}
+%===============================================================%
+
+%===============================================================%
+\section{Conclusion}
+%===============================================================%
+
+
+{\BackgroundShaded
+\begin{frame}
+Questions?
+\end{frame}
+}
+
+
+
+%===============================================================%
+\section{References}
+%===============================================================%
+
+\begin{frame}{References}
+
+	Bruner et al., \emph{School Finance Reforms, Teachers' Unions, and the Allocation of School Resources}. March 04 2019. https://www.mitpressjournals.org/doi/abs/10.1162/rest\_a\_00828
+	\\
+	
+	Baron et al., \emph{The Effect of Teachers’ Unions on Student Achievement in the Short Run: Evidence from Wisconsin’s Act 10}. December 2018. https://www.sciencedirect.com/science/article/pii/S027277571830551X
+	\\
+	
+	Baron et al., \emph{Union Reform, Performance Pay, and New Teacher Supply: Evidence from Wisconsin's Act 10}. April 19, 2019. https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=3317540
+	\\
+	
+	Cowen et al., \emph{The impact of teachers’ unions on educational outcomes: What we know and what we need to learn}. October 2015.
+	\\
+	
+	Lott et al., \emph{State teacher union strength and student achievement}. August 2013.
+
+\end{frame}
+
+
+
+%===============================================================%
+\end{document}
+%===============================================================% 
