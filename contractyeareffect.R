@@ -9,8 +9,46 @@
 ## https://github.com/Skyrior/contract-year-effect/blob/master/player_stats.csv
 ##
 ## -------------------------------------------------------------------------
-## 
+
+library(dplyr)
+library(tidyverse)
+library(janitor)
+library(stringr)
+library(hdm) ## for double lasso
+library(ggplot2)
+
+## -------------------------------------------------------------------------
+##
 ## Cleaning
+##
+## Remember to set working directory to source file location.
+##
+## -------------------------------------------------------------------------
+
+data <- read.csv("player_stats.csv", header = TRUE)
+
+## Removes NA
+
+cleaned <- na.omit(data)
+
+## Removes duplicates
+
+cleaned <- unique(cleaned)
+
+## 1. Removes trailing and leading whitespace, 
+## 2. Replace inner whitespaces with underscores,
+## 3. Replace dots with underscores.
+
+cleaned <- cleaned %>%
+  clean_names() %>%
+  rename_all(~str_replace_all(.,"\\.","_")) %>%
+  mutate(name = str_trim(name)) %>%
+  mutate(name = str_replace(name, " ", "_"))
+
+## Subsets data with no player floating between teams
+
+cleaned.notot <- cleaned %>%
+  filter(team != "TOT")
 
 
 
