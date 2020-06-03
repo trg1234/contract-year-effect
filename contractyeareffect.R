@@ -17,6 +17,7 @@ library(stringr)
 library(hdm) ## for double lasso
 library(ggplot2)
 library(stargazer)
+library(fastDummies)
 
 ## -------------------------------------------------------------------------
 ##
@@ -665,56 +666,58 @@ cat(stargazer(team.dbox, team.obox, team.box, dep.var.labels = c("Defensive Box 
                                                               "Box Outs"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Box Outs as the Dependent Variables"), sep = '\n', file = "tables/boxout.txt")
+              title="Using Box Outs as the Dependent Variables"), sep = '\n', file = "tables/tboxout.txt")
 cat(stargazer(team.avgs, team.soff, team.sdef, dep.var.labels = c("Average Speed", 
                                                                "Offensive Speed", "Defensive Speed"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Speed Metrics as the Dependent Variable"), sep = '\n', file = "tables/speed.txt")
+              title="Using Speed Metrics as the Dependent Variable"), sep = '\n', file = "tables/tspeed.txt")
 cat(stargazer(team.distdef, team.distoff, team.distfeet,
               dep.var.labels = c("Distance: Defensive", "Distance: Offensive", "Distance"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Distance as the Dependent Variable"), sep = '\n', file = "tables/distdef.txt")
+              title="Using Distance as the Dependent Variable"), sep = '\n', file = "tables/tdistdef.txt")
 cat(stargazer(team.dws, team.ows, team.ws, team.ws48,
               dep.var.labels = c("Defensive Win Shares", "Offensive Win Shares",
                                  "Win Shares", "Win Shares per 48 minutes"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Win Shares as the Dependent Variable"),sep = '\n',  file = "tables/dws.txt")
+              title="Using Win Shares as the Dependent Variable"),sep = '\n',  file = "tables/tdws.txt")
 cat(stargazer(team.avgd, dep.var.labels = "Average Seconds per Dribble",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Average Seconds per Dribble as the Dependent Variable"), sep = '\n', file = "tables/avgd.txt")
+              title="Using Average Seconds per Dribble as the Dependent Variable"),
+    sep = '\n', file = "tables/tavgd.txt")
 cat(stargazer(team.avgt, dep.var.labels = "Average Seconds per Touch",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Average Seconds per Touch as the Dependent Variable"), sep = '\n', file = "tables/avgt.txt")
+              title="Using Average Seconds per Touch as the Dependent Variable"),
+    sep = '\n', file = "tables/tavgt.txt")
 cat(stargazer(team.usage, dep.var.labels = "Usage Rate",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played", "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                                   "Current Salary"), omit = c("team.x", "season"),
+              add.lines = list(c("Team Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Usage Rate"), sep = '\n', file = "tables/usage.txt")
+              title="Usage Rate"), sep = '\n', file = "tables/tusage.txt")
 
 
 ## -------------------------------------------------------------------------
@@ -723,24 +726,56 @@ cat(stargazer(team.usage, dep.var.labels = "Usage Rate",
 ##
 ## -------------------------------------------------------------------------
 
-X <- c("contract_year", "height", "weight", "season", "pos", "g", "mp", "rk", "salary_current")
-nba.lasso <- nba %>%
+nba.fullmerged <- nba.fullmerged %>%
+  filter(team.x != "TOT")
+
+X <- c("contract_year", "name", "height", "weight", "season",
+       "age.x", "pos", "g", "mp", "rk", "salary_current", "team.x", "w.y", "l.y")
+X2 <- c("name", "team.x", "pos", "season")
+nba.lasso <- nba.fullmerged %>%
   select(all_of(X))
-nba.y <- nba %>%
-  select("avg_speed")
-nba.d <- nba %>%
+nba.lasso <- dummy_cols(nba.lasso)
+nba.lasso <- nba.lasso %>%
+  select(-one_of(X2))
+nba.lasso <- as.matrix(nba.lasso)
+
+Z <- c("name", "height", "weight", "season",
+       "age.x", "pos", "g", "mp", "rk", "salary_current", "team.x", "w.y", "l.y")
+nba.z <- nba.fullmerged %>%
+  select(all_of(Z))
+nba.z <- dummy_cols(nba.z)
+nba.z <- nba.z %>%
+  select(-one_of(X2))
+nba.z <- as.matrix(nba.z)
+
+nba.y <- nba.fullmerged %>%
+  select("ows")
+nba.y <- as.vector(nba.y)
+
+nba.d <- nba.fullmerged %>%
   select("contract_year")
-Y <- c("avg_speed", "contract_year", "height", "weight", "season", "pos", "g", "mp", "rk", "salary_current")
+nba.d <- as.vector(nba.d)
+
+Y <- c("ows", "contract_year", "name", "height", "weight", "season",
+       "age.x", "pos", "g", "mp", "rk", "salary_current", "team.x", "w.y", "l.y")
 nba.subset <- nba %>%
   select(all_of(Y))
-formula <- paste("avg_speed ~", paste(colnames(nba.lasso), collapse = "+"))
+formula <- paste("avg_speed ~", paste(colnames(nba.subset), collapse = "+"))
 formula <- as.formula(formula)
-dlasso <- rlassoEffects(formula, I=~contract_year, data=nba.subset)
 
-print(dlasso)
-summary(dlasso)
-confint(dlasso)
-plot(dlasso)
+dlasso <- rlassoEffects(x = nba.lasso, y = nba.y, index=c(1:12),
+                        method = "partialling out",
+                        I3 = NULL,
+                        post = TRUE)
+
+lassoeff <- rlassoEffect(x = nba.z, y = nba.y, d = nba.d, method = "double selection",
+                         I3 = NULL,
+                         post = TRUE)
+
+print(lassoeff)
+summary(lassoeff)
+confint(lassoeff)
+plot(lassoeff)
 
 ## -------------------------------------------------------------------------
 ##

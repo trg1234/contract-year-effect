@@ -42,7 +42,19 @@ obpm - Offensive Box Plus/Minus
 	A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player, translated to an average team.
 dbpm - Defensive Box Plus/Minus
 	A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player, translated to an average team.
-bpm - Bos Plus/Minus
+bpm - Box Plus/Minus
 	A box score estimate of the points per 100 possessions a player contributed above a league-average player, translated to an average team.
 vorp - Value over Replacement Player
 	A box score estimate of the points per 100 TEAM possessions that a player contributed above a replacement-level (-2.0) player, translated to an average team and prorated to an 82-game season. Multiply by 2.70 to convert to wins over replacement.
+min - Minutes played per game
+dist_miles - Distance in miles
+dist_miles_off - Offensive per distance in miles
+dist_miles_def - Defensive per distance in miles
+avg_speed - Average Speed
+avg_speed_off - Average Speed offensive
+avg_speed_def - Average Speed defensive
+rk - Rank
+salary_current - Current Salary
+salary_next - Next year Salary
+	Note: normalized to zero if the player does not have a contract in the next year.
+contract_year - Whether a player is on a contract year
