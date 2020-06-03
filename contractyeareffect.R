@@ -245,6 +245,18 @@ write.csv(nba, file = "nba.csv")
 
 ## -------------------------------------------------------------------------
 ##
+## Fixed Effect OLS: Usage Rate
+##
+## -------------------------------------------------------------------------
+
+reg.usage <- lm(formula = usg ~ contract_year + min + as.factor(name) + pos + as.factor(season) 
+              + salary_current, data = nba.advancedstats, weights = nba.advancedstats$min)
+summary.usage <- my.summary.lm(summary(reg.usage), 
+                             my.rows=grep("contract_year|min|season|salary_current",
+                                          names(coef(reg.usage))))
+
+## -------------------------------------------------------------------------
+##
 ## Fixed Effect OLS: Defensive Win Shares
 ##
 ## -------------------------------------------------------------------------
@@ -429,28 +441,24 @@ summary.avgd <- my.summary.lm(summary(reg.avgd),
 ##
 ## -------------------------------------------------------------------------
 
-cat(stargazer(reg.dbox, dep.var.labels = "Defensive Box Outs",
+cat(stargazer(reg.dbox, reg.obox, reg.box, dep.var.labels = c("Defensive Box Outs",
+                                                              "Offensive Box Outs",
+                                                              "Box Outs"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Defensive Box Outs as the Dependent Variable"), file = "tables/dbox.txt")
-cat(stargazer(reg.avgs, dep.var.labels = "Average Speed",
+              title="Using Box Outs as the Dependent Variables"), file = "tables/boxout.txt")
+cat(stargazer(reg.avgs, reg.soff, reg.sdef, dep.var.labels = c("Average Speed", 
+                                                               "Offensive Speed", "Defensive Speed"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Average Speed as the Dependent Variable"), file = "tables/avgs.txt")
-cat(stargazer(reg.box, dep.var.labels = "Box Outs",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Box Outs as the Dependent Variable"), file = "tables/box.txt")
-cat(stargazer(reg.distdef, dep.var.labels = "Distance: Defensive",
+              title="Using Speed Metrics as the Dependent Variable"), file = "tables/speed.txt")
+cat(stargazer(reg.distdef, dep.var.labels = c("Distance: Defensive", "Distance: Offensive", "Distance"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
                                    "Current Salary"), omit = c("name", "year"),
@@ -478,13 +486,6 @@ cat(stargazer(reg.dws, dep.var.labels = "Defensive Win Shares",
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
               title="Using Defensive Win Shares as the Dependent Variable"), file = "tables/dws.txt")
-cat(stargazer(reg.obox, dep.var.labels = "Offensive Boxouts",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Offensive Boxouts as the Dependent Variable"), file = "tables/obox.txt")
 cat(stargazer(reg.ows, dep.var.labels = "Offensive Win Shares",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
@@ -492,20 +493,6 @@ cat(stargazer(reg.ows, dep.var.labels = "Offensive Win Shares",
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
               title="Using Offensive Win Shares as the Dependent Variable"), file = "tables/ows.txt")
-cat(stargazer(reg.sdef, dep.var.labels = "Defensive Speed",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Defensive Speed as the Dependent Variable"), file = "tables/sdef.txt")
-cat(stargazer(reg.soff, dep.var.labels = "Offensive Speed",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Offensive Speed as the Dependent Variable"), file = "tables/soff.txt")
 cat(stargazer(reg.ws, dep.var.labels = "Win Shares",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
@@ -534,6 +521,65 @@ cat(stargazer(reg.avgt, dep.var.labels = "Average Seconds per Touch",
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
               title="Using Average Seconds per Touch as the Dependent Variable"), file = "tables/avgt.txt")
+cat(stargazer(reg.usage, dep.var.labels = "Usage Rate",
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played", "Position",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Usage Rate"), file = "tables/usage.txt")
+
+## -------------------------------------------------------------------------
+##
+## Grouping it up by teams
+##
+## To prevent heterogeneity of inter-correlation of players
+##
+## -------------------------------------------------------------------------
+
+todropa <- c("lg", "team.y", "name", "pos")
+
+nba.a2 <- nba.advancedstats %>%
+  select(-one_of(todropa))
+
+todropt <- c("x", "name", "team.y")
+  
+nba.t2 <- nba.touch %>%
+  select(-one_of(todropt))
+
+todropb <- c("x", "name", "team.y")
+
+nba.b2 <- nba.boxout %>%
+  select(-one_of(todropb))
+
+todropf <- c("name", "lg", "pos", "team.y", "team.x.x", "team.y.y")
+
+nba.f2 <- nba.fullmerged %>%
+  select(-one_of(todropf))
+
+nba.a2 <- nba.a2 %>%
+  filter(team.x != "TOT") %>%
+  group_by(team.x, season) %>%
+  mutate_all(funs(weighted.mean(.,min))) %>%
+  summarize_all(mean)
+
+nba.t2 <- nba.t2 %>%
+  filter(team.x != "TOT") %>%
+  group_by(team.x, season) %>%
+  mutate_all(funs(weighted.mean(.,min.x))) %>%
+  summarize_all(mean)
+
+nba.b2 <- nba.b2 %>%
+  filter(team.x != "TOT") %>%
+  group_by(team.x, season) %>%
+  mutate_all(funs(weighted.mean(.,min.x))) %>%
+  summarize_all(mean)
+
+nba.f2 <- nba.f2 %>%
+  filter(team.x != "TOT") %>%
+  group_by(team.x, season) %>%
+  mutate_all(funs(weighted.mean(.,min))) %>%
+  summarize_all(mean)
 
 
 ## -------------------------------------------------------------------------
