@@ -118,10 +118,14 @@ my.summary.lm = function (x, digits = max(3L, getOption("digits") - 3L),
 
 data <- read.csv("player_stats.csv", header = TRUE)
 contract.year <- read.csv("contractyeardata.csv", header = TRUE)
+boxout <- read.csv("boxouts.csv", header = TRUE)
+touches <- read.csv("touches.csv", header = TRUE)
 
 ## Removes NA
 
 cleaned <- na.omit(data)
+cboxout <- na.omit(boxout)
+ctouches <- na.omit(touches)
 contract.year$Salary.Current <- as.numeric(gsub('[$]', '', contract.year$Salary.Current))
 contract.year$Salary.Next <- as.numeric(gsub('[$]', '', contract.year$Salary.Next))
 
@@ -150,10 +154,26 @@ cleaned.contract <- cleaned.contract %>%
   mutate(player = str_replace_all(player, "[^[:alnum:] ]", "")) %>%
   mutate(player = str_replace(player, " ", "_"))
 
+cboxout <- cboxout %>%
+  clean_names() %>%
+  rename_all(~str_replace_all(.,"\\.","_")) %>%
+  mutate(player = str_trim(player)) %>%
+  mutate(player = str_replace_all(player, "[^[:alnum:] ]", "")) %>%
+  mutate(player = str_replace(player, " ", "_"))
+
+ctouches <- ctouches %>%
+  clean_names() %>%
+  rename_all(~str_replace_all(.,"\\.","_")) %>%
+  mutate(player = str_trim(player)) %>%
+  mutate(player = str_replace_all(player, "[^[:alnum:] ]", "")) %>%
+  mutate(player = str_replace(player, " ", "_"))
+
 ## Removes duplicates
 
 cleaned <- unique(cleaned)
 cleaned.contract <- unique(cleaned.contract)
+cboxout <- unique(cboxout)
+ctouches <- unique(ctouches)
 
 ## Subsets data with no player floating between teams
 
@@ -170,11 +190,19 @@ cleaned.notot <- cleaned %>%
 
 names(cleaned.contract)[names(cleaned.contract) == 'player'] <- 'name'
 names(cleaned.contract)[names(cleaned.contract) == 'year'] <- 'season'
+names(cboxout)[names(cboxout) == 'player'] <- 'name'
+names(cboxout)[names(cboxout) == 'year'] <- 'season'
+names(ctouches)[names(ctouches) == 'player'] <- 'name'
+names(ctouches)[names(ctouches) == 'year'] <- 'season'
 cleaned$season <- as.numeric(str_replace(cleaned$season, "-\\d+", ""))
 cleaned$season <- cleaned$season + 1
 cleaned$season <- as.factor(cleaned$season)
 cleaned.contract$season <- as.factor(cleaned.contract$season)
+cboxout$season <- as.factor(cboxout$season)
+ctouches$season <- as.factor(ctouches$season)
 nba <- left_join(cleaned, cleaned.contract, by = c("name", "season"))
+nba <- left_join(nba, cboxout, by = c("name", "season"))
+nba <- left_join(nba, ctouches, by = c("name", "season"))
 nba <- na.omit(nba)
 
 ## Drop duplicate columns. Note: this includes duplicates due to
@@ -211,9 +239,12 @@ nba.y <- nba %>%
   select("avg_speed")
 nba.d <- nba %>%
   select("contract_year")
+Y <- c("avg_speed", "contract_year", "height", "weight", "season", "pos", "g", "mp", "rk", "salary_current")
+nba.subset <- nba %>%
+  select(all_of(Y))
 formula <- paste("avg_speed ~", paste(colnames(nba.lasso), collapse = "+"))
 formula <- as.formula(formula)
-dlasso <- rlassoEffects(formula, I=~contract_year, data=nba)
+dlasso <- rlassoEffects(formula, I=~contract_year, data=nba.subset)
 
 print(dlasso)
 summary(dlasso)
