@@ -1,0 +1,39 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:36 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Box Outs as the Dependent Variables} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Defensive Box Outs & Offensive Box Outs & Box Outs \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.064 & $-$0.003 & 0.077 \\ 
+  & (0.276) & (0.116) & (0.358) \\ 
+  & & & \\ 
+ Average Minutes Played & 0.056$^{***}$ & 0.017$^{**}$ & 0.073$^{***}$ \\ 
+  & (0.021) & (0.009) & (0.027) \\ 
+  & & & \\ 
+ Current Salary & 0.00000 & $-$0.000 & 0.000 \\ 
+  & (0.00000) & (0.000) & (0.00000) \\ 
+  & & & \\ 
+ Constant & 1.138$^{***}$ & 0.255 & 1.399$^{**}$ \\ 
+  & (0.424) & (0.178) & (0.550) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 90 & 90 & 90 \\ 
+R$^{2}$ & 0.796 & 0.736 & 0.793 \\ 
+Adjusted R$^{2}$ & 0.669 & 0.574 & 0.666 \\ 
+Residual Std. Error (df = 55) & 1.284 & 0.539 & 1.665 \\ 
+F Statistic (df = 34; 55) & 6.294$^{***}$ & 4.521$^{***}$ & 6.213$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

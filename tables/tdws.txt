@@ -1,0 +1,39 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:37 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Win Shares as the Dependent Variable} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & Defensive Win Shares & Offensive Win Shares & Win Shares & Win Shares per 48 minutes \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.476 & 1.017$^{*}$ & 1.513$^{*}$ & 0.020 \\ 
+  & (0.361) & (0.574) & (0.782) & (0.018) \\ 
+  & & & & \\ 
+ Average Minutes Played & $-$0.043 & 0.054 & 0.012 & $-$0.002 \\ 
+  & (0.032) & (0.050) & (0.069) & (0.002) \\ 
+  & & & & \\ 
+ Position & 0.00000$^{***}$ & 0.00000$^{***}$ & 0.00000$^{***}$ & 0.000$^{***}$ \\ 
+  & (0.00000) & (0.00000) & (0.00000) & (0.000) \\ 
+  & & & & \\ 
+ Current Salary & 1.591$^{**}$ & $-$1.044 & 0.519 & 0.069$^{**}$ \\ 
+  & (0.688) & (1.094) & (1.490) & (0.034) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  &  \\ 
+Year Fixed Effects & Yes &  &  &  \\ 
+Observations & 120 & 120 & 120 & 120 \\ 
+R$^{2}$ & 0.619 & 0.652 & 0.653 & 0.516 \\ 
+Adjusted R$^{2}$ & 0.461 & 0.507 & 0.508 & 0.314 \\ 
+Residual Std. Error (df = 84) & 2.405 & 3.822 & 5.206 & 0.119 \\ 
+F Statistic (df = 35; 84) & 3.906$^{***}$ & 4.493$^{***}$ & 4.512$^{***}$ & 2.555$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

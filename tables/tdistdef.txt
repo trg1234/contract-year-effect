@@ -1,0 +1,39 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:36 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Distance as the Dependent Variable} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Distance: Defensive & Distance: Offensive & Distance \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.046 & $-$0.037 & $-$434.186 \\ 
+  & (0.048) & (0.058) & (551.864) \\ 
+  & & & \\ 
+ Average Minutes Played & 0.032$^{***}$ & 0.039$^{***}$ & 375.872$^{***}$ \\ 
+  & (0.004) & (0.005) & (48.451) \\ 
+  & & & \\ 
+ Position & 0.000 & $-$0.000 & 0.00001 \\ 
+  & (0.000) & (0.000) & (0.00004) \\ 
+  & & & \\ 
+ Current Salary & $-$0.085 & $-$0.146 & $-$1,225.332 \\ 
+  & (0.092) & (0.110) & (1,051.393) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 120 & 120 & 120 \\ 
+R$^{2}$ & 0.691 & 0.698 & 0.695 \\ 
+Adjusted R$^{2}$ & 0.562 & 0.572 & 0.567 \\ 
+Residual Std. Error (df = 84) & 0.320 & 0.383 & 3,673.441 \\ 
+F Statistic (df = 35; 84) & 5.365$^{***}$ & 5.545$^{***}$ & 5.457$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

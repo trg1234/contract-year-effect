@@ -1,0 +1,39 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:36 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Speed Metrics as the Dependent Variable} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Average Speed & Offensive Speed & Defensive Speed \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.044 & $-$0.009 & $-$0.037 \\ 
+  & (0.049) & (0.081) & (0.054) \\ 
+  & & & \\ 
+ Average Minutes Played & $-$0.011$^{**}$ & $-$0.010 & $-$0.015$^{***}$ \\ 
+  & (0.004) & (0.007) & (0.005) \\ 
+  & & & \\ 
+ Position & $-$0.000$^{**}$ & $-$0.00000$^{***}$ & 0.000 \\ 
+  & (0.000) & (0.000) & (0.000) \\ 
+  & & & \\ 
+ Current Salary & 4.593$^{***}$ & 4.957$^{***}$ & 4.313$^{***}$ \\ 
+  & (0.094) & (0.155) & (0.103) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 120 & 120 & 120 \\ 
+R$^{2}$ & 0.731 & 0.618 & 0.655 \\ 
+Adjusted R$^{2}$ & 0.619 & 0.459 & 0.512 \\ 
+Residual Std. Error (df = 84) & 0.329 & 0.542 & 0.359 \\ 
+F Statistic (df = 35; 84) & 6.529$^{***}$ & 3.887$^{***}$ & 4.563$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

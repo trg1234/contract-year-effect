@@ -449,7 +449,7 @@ cat(stargazer(reg.dbox, reg.obox, reg.box, dep.var.labels = c("Defensive Box Out
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Box Outs as the Dependent Variables"), file = "tables/boxout.txt")
+              title="Using Box Outs as the Dependent Variables"), sep = '\n', file = "tables/boxout.txt")
 cat(stargazer(reg.avgs, reg.soff, reg.sdef, dep.var.labels = c("Average Speed", 
                                                                "Offensive Speed", "Defensive Speed"),
               covariate.labels = c("Contract Year",
@@ -457,77 +457,45 @@ cat(stargazer(reg.avgs, reg.soff, reg.sdef, dep.var.labels = c("Average Speed",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Speed Metrics as the Dependent Variable"), file = "tables/speed.txt")
-cat(stargazer(reg.distdef, dep.var.labels = c("Distance: Defensive", "Distance: Offensive", "Distance"),
+              title="Using Speed Metrics as the Dependent Variable"), sep = '\n', file = "tables/speed.txt")
+cat(stargazer(reg.distdef, reg.distoff, reg.distfeet,
+              dep.var.labels = c("Distance: Defensive", "Distance: Offensive", "Distance"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Distance: Defensive as the Dependent Variable"), file = "tables/distdef.txt")
-cat(stargazer(reg.distfeet, dep.var.labels = "Distance",
+              title="Using Distance as the Dependent Variable"), sep = '\n', file = "tables/distdef.txt")
+cat(stargazer(reg.dws, reg.ows, reg.ws, reg.ws48,
+              dep.var.labels = c("Defensive Win Shares", "Offensive Win Shares",
+                                 "Win Shares", "Win Shares per 48 minutes"),
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",  "Position",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Distance as the Dependent Variable"), file = "tables/distfeet.txt")
-cat(stargazer(reg.distoff, dep.var.labels = "Distance: Offensive",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Distance: Offensive as the Dependent Variable"), file = "tables/distoff.txt")
-cat(stargazer(reg.dws, dep.var.labels = "Defensive Win Shares",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Defensive Win Shares as the Dependent Variable"), file = "tables/dws.txt")
-cat(stargazer(reg.ows, dep.var.labels = "Offensive Win Shares",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Offensive Win Shares as the Dependent Variable"), file = "tables/ows.txt")
-cat(stargazer(reg.ws, dep.var.labels = "Win Shares",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Win Shares as the Dependent Variable"), file = "tables/ws.txt")
-cat(stargazer(reg.ws48, dep.var.labels = "Win Shares per 48 minutes",
-              covariate.labels = c("Contract Year",
-                                   "Average Minutes Played",  "Position",
-                                   "Current Salary"), omit = c("name", "year"),
-              add.lines = list(c("Player Fixed Effects", "Yes"), 
-                               c("Year Fixed Effects", "Yes")),
-              title="Using Win Shares per 48 minutes as the Dependent Variable"), file = "tables/ws48.txt")
+              title="Using Win Shares as the Dependent Variable"),sep = '\n',  file = "tables/dws.txt")
 cat(stargazer(reg.avgd, dep.var.labels = "Average Seconds per Dribble",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Average Seconds per Dribble as the Dependent Variable"), file = "tables/avgd.txt")
+              title="Using Average Seconds per Dribble as the Dependent Variable"), sep = '\n', file = "tables/avgd.txt")
 cat(stargazer(reg.avgt, dep.var.labels = "Average Seconds per Touch",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Using Average Seconds per Touch as the Dependent Variable"), file = "tables/avgt.txt")
+              title="Using Average Seconds per Touch as the Dependent Variable"), sep = '\n', file = "tables/avgt.txt")
 cat(stargazer(reg.usage, dep.var.labels = "Usage Rate",
               covariate.labels = c("Contract Year",
                                    "Average Minutes Played", "Position",
                                    "Current Salary"), omit = c("name", "year"),
               add.lines = list(c("Player Fixed Effects", "Yes"), 
                                c("Year Fixed Effects", "Yes")),
-              title="Usage Rate"), file = "tables/usage.txt")
+              title="Usage Rate"), sep = '\n', file = "tables/usage.txt")
 
 ## -------------------------------------------------------------------------
 ##
@@ -580,6 +548,173 @@ nba.f2 <- nba.f2 %>%
   group_by(team.x, season) %>%
   mutate_all(funs(weighted.mean(.,min))) %>%
   summarize_all(mean)
+
+## -------------------------------------------------------------------------
+##
+## Fixed Effect OLS For Teams:
+##
+## -------------------------------------------------------------------------
+
+
+team.usage <- lm(formula = usg ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+                + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamusage <- my.summary.lm(summary(team.usage), 
+                               my.rows=grep("contract_year|min|season|salary_current",
+                                            names(coef(team.usage))))
+
+team.dws <- lm(formula = dws ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+              + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamdws <- my.summary.lm(summary(team.dws), 
+                             my.rows=grep("contract_year|min|season|salary_current",
+                                          names(coef(team.dws))))
+
+team.ows <- lm(formula = ows ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+              + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamows <- my.summary.lm(summary(team.ows), 
+                             my.rows=grep("contract_year|min|season|salary_current",
+                                          names(coef(team.ows))))
+
+team.ws <- lm(formula = ws ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+             + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamws <- my.summary.lm(summary(team.ws), 
+                            my.rows=grep("contract_year|min|season|salary_current",
+                                         names(coef(team.ws))))
+
+
+team.distfeet <- lm(formula = dist_feet ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+                   + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamdistfeet <- my.summary.lm(summary(team.distfeet), 
+                                  my.rows=grep("contract_year|min|season|salary_current",
+                                               names(coef(team.distfeet))))
+
+team.distdef <- lm(formula = dist_miles_def ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+                  + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamdistdef <- my.summary.lm(summary(team.distdef), 
+                                 my.rows=grep("contract_year|min|season|salary_current",
+                                              names(coef(team.distdef))))
+
+team.distoff <- lm(formula = dist_miles_off ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+                  + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamdistoff <- my.summary.lm(summary(team.distoff), 
+                                 my.rows=grep("contract_year|min|season|salary_current",
+                                              names(coef(team.distoff))))
+
+team.avgs <- lm(formula = avg_speed ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamavgs <- my.summary.lm(summary(team.avgs), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.avgs))))
+
+team.sdef <- lm(formula = avg_speed_def ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamsdef <- my.summary.lm(summary(team.sdef), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.sdef))))
+
+team.soff <- lm(formula = avg_speed_off ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamsoff <- my.summary.lm(summary(team.soff), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.soff))))
+
+team.ws48 <- lm(formula = ws_48 ~ contract_year + min + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.a2, weights = nba.a2$min)
+summary.teamws48 <- my.summary.lm(summary(team.ws48), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.ws48))))
+
+team.box <- lm(formula = box_outs ~ contract_year + min.y + as.factor(team.x) + as.factor(season) 
+              + salary_current, data = nba.b2, weights = nba.b2$min.y)
+summary.teambox <- my.summary.lm(summary(team.box), 
+                             my.rows=grep("contract_year|min|season|salary_current",
+                                          names(coef(team.box))))
+
+team.obox <- lm(formula = off_box_outs ~ contract_year + min.y + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.b2, weights = nba.b2$min.y)
+summary.teamobox <- my.summary.lm(summary(team.obox), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.obox))))
+
+team.dbox <- lm(formula = def_box_outs ~ contract_year + min.y + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.b2, weights = nba.b2$min.y)
+summary.teamdbox <- my.summary.lm(summary(team.dbox), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.dbox))))
+
+team.avgt <- lm(formula = avg_sec_per_touch ~ contract_year + min.y + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.t2, weights = nba.t2$min.y)
+summary.teamavgt <- my.summary.lm(summary(team.avgt), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.avgt))))
+
+team.avgd <- lm(formula = avg_drib_per_touch ~ contract_year + min.y + as.factor(team.x) + as.factor(season) 
+               + salary_current, data = nba.t2, weights = nba.t2$min.y)
+summary.teamavgd <- my.summary.lm(summary(team.avgd), 
+                              my.rows=grep("contract_year|min|season|salary_current",
+                                           names(coef(team.avgd))))
+
+
+## -------------------------------------------------------------------------
+##
+## Export Fixed Team Effect OLS as tables (w/ Stargazer)
+##
+## -------------------------------------------------------------------------
+
+cat(stargazer(team.dbox, team.obox, team.box, dep.var.labels = c("Defensive Box Outs",
+                                                              "Offensive Box Outs",
+                                                              "Box Outs"),
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Using Box Outs as the Dependent Variables"), sep = '\n', file = "tables/boxout.txt")
+cat(stargazer(team.avgs, team.soff, team.sdef, dep.var.labels = c("Average Speed", 
+                                                               "Offensive Speed", "Defensive Speed"),
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played",  "Position",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Using Speed Metrics as the Dependent Variable"), sep = '\n', file = "tables/speed.txt")
+cat(stargazer(team.distdef, team.distoff, team.distfeet,
+              dep.var.labels = c("Distance: Defensive", "Distance: Offensive", "Distance"),
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played",  "Position",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Using Distance as the Dependent Variable"), sep = '\n', file = "tables/distdef.txt")
+cat(stargazer(team.dws, team.ows, team.ws, team.ws48,
+              dep.var.labels = c("Defensive Win Shares", "Offensive Win Shares",
+                                 "Win Shares", "Win Shares per 48 minutes"),
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played",  "Position",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Using Win Shares as the Dependent Variable"),sep = '\n',  file = "tables/dws.txt")
+cat(stargazer(team.avgd, dep.var.labels = "Average Seconds per Dribble",
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Using Average Seconds per Dribble as the Dependent Variable"), sep = '\n', file = "tables/avgd.txt")
+cat(stargazer(team.avgt, dep.var.labels = "Average Seconds per Touch",
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Using Average Seconds per Touch as the Dependent Variable"), sep = '\n', file = "tables/avgt.txt")
+cat(stargazer(team.usage, dep.var.labels = "Usage Rate",
+              covariate.labels = c("Contract Year",
+                                   "Average Minutes Played", "Position",
+                                   "Current Salary"), omit = c("name", "year"),
+              add.lines = list(c("Player Fixed Effects", "Yes"), 
+                               c("Year Fixed Effects", "Yes")),
+              title="Usage Rate"), sep = '\n', file = "tables/usage.txt")
 
 
 ## -------------------------------------------------------------------------
