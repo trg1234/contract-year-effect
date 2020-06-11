@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Jun 02, 2020 - 10:55:37 PM
+% Date and time: Wed, Jun 03, 2020 - 1:54:41 AM
 \begin{table}[!htbp] \centering 
   \caption{Using Average Seconds per Touch as the Dependent Variable} 
   \label{} 

@@ -1,6 +1,6 @@
 
 % Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Jun 02, 2020 - 10:36:20 PM
+% Date and time: Wed, Jun 03, 2020 - 1:54:40 AM
 \begin{table}[!htbp] \centering 
   \caption{Using Average Seconds per Dribble as the Dependent Variable} 
   \label{} 

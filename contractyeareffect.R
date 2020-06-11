@@ -722,7 +722,7 @@ cat(stargazer(team.usage, dep.var.labels = "Usage Rate",
 
 ## -------------------------------------------------------------------------
 ##
-## Double LASSO: Average Speed
+## Double LASSO: OWS
 ##
 ## -------------------------------------------------------------------------
 
@@ -777,34 +777,34 @@ summary(lassoeff)
 confint(lassoeff)
 plot(lassoeff)
 
-## -------------------------------------------------------------------------
-##
-## Double LASSO test
-##
-## -------------------------------------------------------------------------
+print(dlasso)
+summary(dlasso)
+confint(dlasso)
+plot(dlasso)
 
-n = 100 #sample size
-p = 100 # number of variables
-s = 3 # nubmer of non-zero variables
-X = matrix(rnorm(n*p), ncol=p)
-colnames(X) <- paste("X", 1:p, sep="")
-beta = c(rep(3,s), rep(0,p-s))
-y = 1 + X%*%beta + rnorm(n)
-data = data.frame(cbind(y,X))
-colnames(data)[1] <- "y"
-fm = paste("y ~", paste(colnames(X), collapse="+"))
-fm = as.formula(fm)
-lasso.effect = rlassoEffects(X, y, index=c(1,2,3,50))
-lasso.effect = rlassoEffects(fm, I = ~ X1 + X2 + X3 + X50, data=data)
-print(lasso.effect)
-summary(lasso.effect)
-confint(lasso.effect)
-plot(lasso.effect)
+todropa <- c("lg", "team.y", "name", "pos")
 
-data("GrowthData") # = use ?GrowthData for more information = #
-dataset=GrowthData[,-2]
-lasso = rlasso(Outcome~., data = dataset, post = FALSE) # = Run the Rigorous LASSO = #
-selected = which(coef(lasso)[-c(1:2)] !=0) # = Select relevant variables = #
-formula = paste(c("Outcome ~ gdpsh465", names(selected)), collapse = "+")
-SS = summary(lm(formula, data = dataset))$coefficients[1, ]
-DS=rlassoEffects(Outcome~. , I=~gdpsh465, data=dataset)
+nba.a2 <- nba.advancedstats %>%
+  select(-one_of(todropa))
+
+todropt <- c("x", "name", "team.y")
+
+nba.t2 <- nba.touch %>%
+  select(-one_of(todropt))
+
+todropb <- c("x", "name", "team.y")
+
+nba.b2 <- nba.boxout %>%
+  select(-one_of(todropb))
+
+todropf <- c("name", "lg", "pos", "team.y", "team.x.x", "team.y.y")
+
+nba.f2 <- nba.fullmerged %>%
+  select(-one_of(todropf))
+
+nba.a2 <- nba.a2 %>%
+  filter(team.x != "TOT") %>%
+  group_by(team.x, season) %>%
+  mutate_all(funs(weighted.mean(.,min))) %>%
+  summarize_all(mean)
+
