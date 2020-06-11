@@ -1,0 +1,770 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{booktabs,dcolumn,caption}
+\usepackage{geometry}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{booktabs, makecell}
+\usepackage[referable]{threeparttablex}
+\captionsetup{labelsep=newline,
+              singlelinecheck=false,
+              skip=0.333\baselineskip}
+\newcolumntype{d}[1]{D{.}{.}{#1}} % "decimal" column type
+\renewcommand{\ast}{{}^{\textstyle *}} % for raised "asterisks"
+\begin{document}
+
+
+\setcounter{table}{0}
+
+
+
+
+\begin{table}
+\setlength\tabcolsep{0pt} % let LaTeX figure out amount of inter-column whitespace
+\caption{Census Day Enrollment}
+\label{turns}
+\scalebox{0.9}{
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l *{3}{d{2.4}} }
+\toprule
+ & \multicolumn{3}{c}{Number of Students} \\
+ & \multicolumn{1}{c}{2013-2014} & \multicolumn{1}{c}{2014-2015} & \multicolumn{1}{c}{2015-2016}\\
+\midrule
+Non-Charter   &  516,995   & -0.002 & 1.155\ast \\
+              & (1.22)    & (2.22) & (0.56)\\
+Constant      & 0.025\ast & -0.002 & 1.155\ast \\
+              & (1.22)    & (2.22) & (0.56)\\
+Log(assets)\textsuperscript{a} 
+              & 0.025\ast & -0.002 & 1.155\ast \\
+              & (1.22)    & (2.22) & (0.56)\\
+\bottomrule
+\end{tabular*}}
+\begin{tablenotes}[flushleft]\small
+\note  each variable ...
+\source  Authors' calculations ...
+\end{tablenotes}
+\end{table}
+
+
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:36:20 PM
+\begin{table}\centering 
+\caption{Using Average Seconds per Dribble as the Dependent Variable} 
+\label{} 
+\scalebox{0.6}{
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Average Seconds per Dribble \\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.011$^{***}$ \\ 
+  & (0.004) \\ 
+  & \\ 
+ Average Minutes Played & 0.033 \\ 
+  & (0.029) \\ 
+  & \\ 
+ Current Salary & 0.060$^{*}$ \\ 
+  & (0.035) \\ 
+  & \\ 
+ salary\_current & $-$0.000 \\ 
+  & (0.000) \\ 
+  & \\ 
+ Constant & 5.117$^{***}$ \\ 
+  & (0.664) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes \\ 
+Year Fixed Effects & Yes \\ 
+Observations & 1,057 \\ 
+R$^{2}$ & 0.974 \\ 
+Adjusted R$^{2}$ & 0.952 \\ 
+Residual Std. Error & 1.609 (df = 569) \\ 
+F Statistic & 44.244$^{***}$ (df = 487; 569) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular}} 
+\end{table} 
+
+
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:36:20 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Average Seconds per Touch as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Average Seconds per Touch \\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.012$^{***}$ \\ 
+  & (0.003) \\ 
+  & \\ 
+ Average Minutes Played & 0.010 \\ 
+  & (0.026) \\ 
+  & \\ 
+ Current Salary & 0.061$^{*}$ \\ 
+  & (0.031) \\ 
+  & \\ 
+ salary\_current & $-$0.000 \\ 
+  & (0.000) \\ 
+  & \\ 
+ Constant & 5.218$^{***}$ \\ 
+  & (0.601) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes \\ 
+Year Fixed Effects & Yes \\ 
+Observations & 1,057 \\ 
+R$^{2}$ & 0.970 \\ 
+Adjusted R$^{2}$ & 0.944 \\ 
+Residual Std. Error & 1.456 (df = 569) \\ 
+F Statistic & 37.358$^{***}$ (df = 487; 569) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:36:09 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Box Outs as the Dependent Variables} 
+  \label{}
+  \scalebox{0.7}{ 
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Defensive Box Outs & Offensive Box Outs & Box Outs \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.067$^{***}$ & 0.014$^{***}$ & 0.081$^{***}$ \\ 
+  & (0.007) & (0.003) & (0.009) \\ 
+  & & & \\ 
+ Average Minutes Played & $-$0.224$^{***}$ & $-$0.148$^{***}$ & $-$0.376$^{***}$ \\ 
+  & (0.056) & (0.027) & (0.071) \\ 
+  & & & \\ 
+ Current Salary & $-$1.003$^{***}$ & $-$0.292$^{***}$ & $-$1.307$^{***}$ \\ 
+  & (0.067) & (0.032) & (0.085) \\ 
+  & & & \\ 
+ salary\_current & 0.000 & $-$0.000$^{**}$ & $-$0.000 \\ 
+  & (0.000) & (0.000) & (0.000) \\ 
+  & & & \\ 
+ Constant & $-$0.239 & $-$0.034 & $-$0.285 \\ 
+  & (1.279) & (0.617) & (1.628) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 1,057 & 1,057 & 1,057 \\ 
+R$^{2}$ & 0.918 & 0.840 & 0.917 \\ 
+Adjusted R$^{2}$ & 0.847 & 0.704 & 0.845 \\ 
+Residual Std. Error (df = 569) & 3.099 & 1.494 & 3.946 \\ 
+F Statistic (df = 487; 569) & 13.047$^{***}$ & 6.145$^{***}$ & 12.834$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table}
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:36:15 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Distance as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Distance: Defensive & Distance: Offensive & Distance \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.033$^{***}$ & 0.038$^{***}$ & 375.995$^{***}$ \\ 
+  & (0.0002) & (0.0003) & (1.987) \\ 
+  & & & \\ 
+ Average Minutes Played & $-$0.028 & $-$0.019 & $-$232.420 \\ 
+  & (0.021) & (0.024) & (167.408) \\ 
+  & & & \\ 
+ Position & $-$0.007 & $-$0.006 & $-$60.354 \\ 
+  & (0.007) & (0.008) & (55.758) \\ 
+  & & & \\ 
+ Current Salary & 0.009 & $-$0.001 & 105.262 \\ 
+  & (0.050) & (0.058) & (403.686) \\ 
+  & & & \\ 
+ posPF-SF & 0.038$^{*}$ & 0.012 & 287.761$^{*}$ \\ 
+  & (0.020) & (0.023) & (159.295) \\ 
+  & & & \\ 
+ posPG & $-$0.026$^{**}$ & 0.006 & $-$105.444 \\ 
+  & (0.012) & (0.014) & (97.853) \\ 
+  & & & \\ 
+ posSF & $-$0.011 & 0.001 & $-$41.964 \\ 
+  & (0.009) & (0.011) & (73.945) \\ 
+  & & & \\ 
+ posSF-PF & $-$0.020 & $-$0.019 & $-$171.840 \\ 
+  & (0.083) & (0.096) & (671.448) \\ 
+  & & & \\ 
+ posSF-SG & 0.017 & 0.038$^{**}$ & 284.066$^{**}$ \\ 
+  & (0.015) & (0.017) & (121.953) \\ 
+  & & & \\ 
+ posSG & $-$0.011 & $-$0.009 & $-$95.964 \\ 
+  & (0.011) & (0.012) & (86.236) \\ 
+  & & & \\ 
+ posSG-PF & $-$0.034 & 0.035 & $-$22.958 \\ 
+  & (0.032) & (0.037) & (258.428) \\ 
+  & & & \\ 
+ posSG-SF & $-$0.001 & $-$0.004 & $-$41.108 \\ 
+  & (0.034) & (0.040) & (276.733) \\ 
+  & & & \\ 
+ as.factor(season)2018 & 0.014$^{***}$ & 0.014$^{***}$ & 147.431$^{***}$ \\ 
+  & (0.002) & (0.003) & (19.657) \\ 
+  & & & \\ 
+ as.factor(season)2019 & 0.042$^{***}$ & 0.066$^{***}$ & 572.759$^{***}$ \\ 
+  & (0.003) & (0.003) & (21.383) \\ 
+  & & & \\ 
+ as.factor(season)2020 & 0.032$^{***}$ & 0.045$^{***}$ & 404.702$^{***}$ \\ 
+  & (0.003) & (0.003) & (22.963) \\ 
+  & & & \\ 
+ salary\_current & $-$0.000 & 0.000$^{***}$ & 0.00000$^{**}$ \\ 
+  & (0.000) & (0.000) & (0.00000) \\ 
+  & & & \\ 
+ Constant & 0.015 & $-$0.020 & $-$38.408 \\ 
+  & (0.034) & (0.040) & (280.617) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 1,133 & 1,133 & 1,133 \\ 
+R$^{2}$ & 0.994 & 0.994 & 0.997 \\ 
+Adjusted R$^{2}$ & 0.989 & 0.990 & 0.995 \\ 
+Residual Std. Error (df = 676) & 0.118 & 0.138 & 963.488 \\ 
+F Statistic (df = 456; 676) & 233.024$^{***}$ & 242.760$^{***}$ & 466.797$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:36:20 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Win Shares as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & Defensive Win Shares & Offensive Win Shares & Win Shares & Win Shares per 48 minutes \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.062$^{***}$ & 0.134$^{***}$ & 0.196$^{***}$ & 0.002$^{***}$ \\ 
+  & (0.006) & (0.012) & (0.015) & (0.0004) \\ 
+  & & & & \\ 
+ Average Minutes Played & $-$0.090 & 0.098 & 0.019 & $-$0.001 \\ 
+  & (0.520) & (0.971) & (1.252) & (0.030) \\ 
+  & & & & \\ 
+ Position & $-$0.170 & $-$0.755$^{**}$ & $-$0.922$^{**}$ & $-$0.027$^{***}$ \\ 
+  & (0.173) & (0.323) & (0.417) & (0.010) \\ 
+  & & & & \\ 
+ Current Salary & $-$0.026 & $-$0.893 & $-$0.931 & $-$0.053 \\ 
+  & (1.253) & (2.341) & (3.018) & (0.072) \\ 
+  & & & & \\ 
+ posPF-SF & $-$0.193 & $-$1.192 & $-$1.352 & $-$0.026 \\ 
+  & (0.494) & (0.924) & (1.191) & (0.028) \\ 
+  & & & & \\ 
+ posPG & $-$0.416 & $-$1.530$^{***}$ & $-$1.926$^{***}$ & $-$0.046$^{***}$ \\ 
+  & (0.304) & (0.567) & (0.732) & (0.017) \\ 
+  & & & & \\ 
+ posSF & $-$0.392$^{*}$ & $-$1.315$^{***}$ & $-$1.677$^{***}$ & $-$0.034$^{**}$ \\ 
+  & (0.229) & (0.429) & (0.553) & (0.013) \\ 
+  & & & & \\ 
+ posSF-PF & 0.175 & $-$0.412 & $-$0.339 & $-$0.085 \\ 
+  & (2.084) & (3.893) & (5.021) & (0.120) \\ 
+  & & & & \\ 
+ posSF-SG & $-$0.460 & $-$1.375$^{*}$ & $-$1.784$^{*}$ & $-$0.040$^{*}$ \\ 
+  & (0.378) & (0.707) & (0.912) & (0.022) \\ 
+  & & & & \\ 
+ posSG & $-$0.496$^{*}$ & $-$1.411$^{***}$ & $-$1.875$^{***}$ & $-$0.042$^{***}$ \\ 
+  & (0.268) & (0.500) & (0.645) & (0.015) \\ 
+  & & & & \\ 
+ posSG-PF & $-$0.191 & $-$1.751 & $-$1.930 & $-$0.059 \\ 
+  & (0.802) & (1.498) & (1.932) & (0.046) \\ 
+  & & & & \\ 
+ posSG-SF & $-$0.364 & $-$1.529 & $-$1.852 & $-$0.065 \\ 
+  & (0.859) & (1.605) & (2.069) & (0.049) \\ 
+  & & & & \\ 
+ as.factor(season)2018 & $-$0.067 & $-$0.042 & $-$0.107 & 0.002 \\ 
+  & (0.061) & (0.114) & (0.147) & (0.004) \\ 
+  & & & & \\ 
+ as.factor(season)2019 & $-$0.124$^{*}$ & $-$0.235$^{*}$ & $-$0.362$^{**}$ & $-$0.001 \\ 
+  & (0.066) & (0.124) & (0.160) & (0.004) \\ 
+  & & & & \\ 
+ as.factor(season)2020 & $-$0.471$^{***}$ & $-$0.565$^{***}$ & $-$1.036$^{***}$ & 0.001 \\ 
+  & (0.071) & (0.133) & (0.172) & (0.004) \\ 
+  & & & & \\ 
+ salary\_current & $-$0.000 & $-$0.00000$^{***}$ & $-$0.00000$^{***}$ & $-$0.000$^{**}$ \\ 
+  & (0.000) & (0.000) & (0.000) & (0.000) \\ 
+  & & & & \\ 
+ Constant & $-$0.008 & $-$0.450 & $-$0.494 & 0.033 \\ 
+  & (0.871) & (1.627) & (2.098) & (0.050) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes &  &  &  \\ 
+Year Fixed Effects & Yes &  &  &  \\ 
+Observations & 1,133 & 1,133 & 1,133 & 1,133 \\ 
+R$^{2}$ & 0.791 & 0.827 & 0.840 & 0.798 \\ 
+Adjusted R$^{2}$ & 0.650 & 0.710 & 0.731 & 0.661 \\ 
+Residual Std. Error (df = 676) & 2.990 & 5.586 & 7.204 & 0.172 \\ 
+F Statistic (df = 456; 676) & 5.605$^{***}$ & 7.072$^{***}$ & 7.756$^{***}$ & 5.840$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:} {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:36:12 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Speed Metrics as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Average Speed & Offensive Speed & Defensive Speed \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.005$^{***}$ & $-$0.005$^{***}$ & $-$0.007$^{***}$ \\ 
+  & (0.001) & (0.001) & (0.001) \\ 
+  & & & \\ 
+ Average Minutes Played & $-$0.022 & 0.080 & $-$0.125 \\ 
+  & (0.062) & (0.106) & (0.081) \\ 
+  & & & \\ 
+ Position & $-$0.034 & $-$0.055 & $-$0.010 \\ 
+  & (0.021) & (0.035) & (0.027) \\ 
+  & & & \\ 
+ Current Salary & 0.057 & 0.109 & 0.061 \\ 
+  & (0.149) & (0.256) & (0.194) \\ 
+  & & & \\ 
+ posPF-SF & 0.065 & 0.074 & 0.068 \\ 
+  & (0.059) & (0.101) & (0.077) \\ 
+  & & & \\ 
+ posPG & $-$0.060 & $-$0.082 & $-$0.035 \\ 
+  & (0.036) & (0.062) & (0.047) \\ 
+  & & & \\ 
+ posSF & $-$0.024 & $-$0.051 & 0.005 \\ 
+  & (0.027) & (0.047) & (0.036) \\ 
+  & & & \\ 
+ posSF-PF & $-$0.096 & $-$0.001 & $-$0.206 \\ 
+  & (0.249) & (0.425) & (0.323) \\ 
+  & & & \\ 
+ posSF-SG & 0.051 & 0.079 & 0.026 \\ 
+  & (0.045) & (0.077) & (0.059) \\ 
+  & & & \\ 
+ posSG & $-$0.058$^{*}$ & $-$0.090$^{*}$ & $-$0.019 \\ 
+  & (0.032) & (0.055) & (0.042) \\ 
+  & & & \\ 
+ posSG-PF & 0.033 & 0.098 & $-$0.042 \\ 
+  & (0.096) & (0.164) & (0.124) \\ 
+  & & & \\ 
+ posSG-SF & $-$0.001 & $-$0.123 & 0.109 \\ 
+  & (0.102) & (0.175) & (0.133) \\ 
+  & & & \\ 
+ as.factor(season)2018 & 0.077$^{***}$ & 0.079$^{***}$ & 0.076$^{***}$ \\ 
+  & (0.007) & (0.012) & (0.009) \\ 
+  & & & \\ 
+ as.factor(season)2019 & $-$0.037$^{***}$ & 0.004 & $-$0.070$^{***}$ \\ 
+  & (0.008) & (0.014) & (0.010) \\ 
+  & & & \\ 
+ as.factor(season)2020 & $-$0.104$^{***}$ & $-$0.080$^{***}$ & $-$0.111$^{***}$ \\ 
+  & (0.009) & (0.015) & (0.011) \\ 
+  & & & \\ 
+ salary\_current & $-$0.000 & 0.000 & $-$0.000$^{***}$ \\ 
+  & (0.000) & (0.000) & (0.000) \\ 
+  & & & \\ 
+ Constant & 4.275$^{***}$ & 4.508$^{***}$ & 4.069$^{***}$ \\ 
+  & (0.104) & (0.178) & (0.135) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 1,133 & 1,133 & 1,133 \\ 
+R$^{2}$ & 0.922 & 0.860 & 0.877 \\ 
+Adjusted R$^{2}$ & 0.870 & 0.766 & 0.794 \\ 
+Residual Std. Error (df = 676) & 0.357 & 0.610 & 0.464 \\ 
+F Statistic (df = 456; 676) & 17.572$^{***}$ & 9.105$^{***}$ & 10.575$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table}
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:43:48 PM
+\begin{table}[!htbp] \centering 
+  \caption{Usage Rate} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Usage Rate \\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.093$^{***}$ \\ 
+  & (0.023) \\ 
+  & \\ 
+ Average Minutes Played & 0.514 \\ 
+  & (1.975) \\ 
+  & \\ 
+ Position & $-$0.181 \\ 
+  & (0.658) \\ 
+  & \\ 
+ Current Salary & $-$2.686 \\ 
+  & (4.762) \\ 
+  & \\ 
+ posPF-SF & $-$2.598 \\ 
+  & (1.879) \\ 
+  & \\ 
+ posPG & 0.551 \\ 
+  & (1.154) \\ 
+  & \\ 
+ posSF & $-$0.074 \\ 
+  & (0.872) \\ 
+  & \\ 
+ posSF-PF & $-$4.793 \\ 
+  & (7.920) \\ 
+  & \\ 
+ posSF-SG & $-$0.516 \\ 
+  & (1.439) \\ 
+  & \\ 
+ posSG & 0.683 \\ 
+  & (1.017) \\ 
+  & \\ 
+ posSG-PF & 3.761 \\ 
+  & (3.048) \\ 
+  & \\ 
+ posSG-SF & $-$0.006 \\ 
+  & (3.264) \\ 
+  & \\ 
+ as.factor(season)2018 & $-$0.318 \\ 
+  & (0.232) \\ 
+  & \\ 
+ as.factor(season)2019 & $-$0.776$^{***}$ \\ 
+  & (0.252) \\ 
+  & \\ 
+ as.factor(season)2020 & $-$0.699$^{**}$ \\ 
+  & (0.271) \\ 
+  & \\ 
+ salary\_current & 0.00000$^{*}$ \\ 
+  & (0.00000) \\ 
+  & \\ 
+ Constant & 17.201$^{***}$ \\ 
+  & (3.310) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Player Fixed Effects & Yes \\ 
+Year Fixed Effects & Yes \\ 
+Observations & 1,133 \\ 
+R$^{2}$ & 0.889 \\ 
+Adjusted R$^{2}$ & 0.814 \\ 
+Residual Std. Error & 11.365 (df = 676) \\ 
+F Statistic & 11.846$^{***}$ (df = 456; 676) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:37 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Average Seconds per Dribble as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Average Seconds per Dribble \\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.298 \\ 
+  & (0.310) \\ 
+  & \\ 
+ Average Minutes Played & 0.039 \\ 
+  & (0.023) \\ 
+  & \\ 
+ Current Salary & 0.000 \\ 
+  & (0.00000) \\ 
+  & \\ 
+ Constant & 0.869$^{*}$ \\ 
+  & (0.477) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes \\ 
+Year Fixed Effects & Yes \\ 
+Observations & 90 \\ 
+R$^{2}$ & 0.448 \\ 
+Adjusted R$^{2}$ & 0.106 \\ 
+Residual Std. Error & 1.443 (df = 55) \\ 
+F Statistic & 1.312 (df = 34; 55) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:37 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Average Seconds per Touch as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Average Seconds per Touch \\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.257 \\ 
+  & (0.267) \\ 
+  & \\ 
+ Average Minutes Played & 0.033 \\ 
+  & (0.020) \\ 
+  & \\ 
+ Current Salary & 0.000 \\ 
+  & (0.00000) \\ 
+  & \\ 
+ Constant & 1.795$^{***}$ \\ 
+  & (0.410) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes \\ 
+Year Fixed Effects & Yes \\ 
+Observations & 90 \\ 
+R$^{2}$ & 0.450 \\ 
+Adjusted R$^{2}$ & 0.110 \\ 
+Residual Std. Error & 1.240 (df = 55) \\ 
+F Statistic & 1.323 (df = 34; 55) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:36 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Box Outs as the Dependent Variables} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Defensive Box Outs & Offensive Box Outs & Box Outs \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.064 & $-$0.003 & 0.077 \\ 
+  & (0.276) & (0.116) & (0.358) \\ 
+  & & & \\ 
+ Average Minutes Played & 0.056$^{***}$ & 0.017$^{**}$ & 0.073$^{***}$ \\ 
+  & (0.021) & (0.009) & (0.027) \\ 
+  & & & \\ 
+ Current Salary & 0.00000 & $-$0.000 & 0.000 \\ 
+  & (0.00000) & (0.000) & (0.00000) \\ 
+  & & & \\ 
+ Constant & 1.138$^{***}$ & 0.255 & 1.399$^{**}$ \\ 
+  & (0.424) & (0.178) & (0.550) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 90 & 90 & 90 \\ 
+R$^{2}$ & 0.796 & 0.736 & 0.793 \\ 
+Adjusted R$^{2}$ & 0.669 & 0.574 & 0.666 \\ 
+Residual Std. Error (df = 55) & 1.284 & 0.539 & 1.665 \\ 
+F Statistic (df = 34; 55) & 6.294$^{***}$ & 4.521$^{***}$ & 6.213$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:36 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Distance as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Distance: Defensive & Distance: Offensive & Distance \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.046 & $-$0.037 & $-$434.186 \\ 
+  & (0.048) & (0.058) & (551.864) \\ 
+  & & & \\ 
+ Average Minutes Played & 0.032$^{***}$ & 0.039$^{***}$ & 375.872$^{***}$ \\ 
+  & (0.004) & (0.005) & (48.451) \\ 
+  & & & \\ 
+ Position & 0.000 & $-$0.000 & 0.00001 \\ 
+  & (0.000) & (0.000) & (0.00004) \\ 
+  & & & \\ 
+ Current Salary & $-$0.085 & $-$0.146 & $-$1,225.332 \\ 
+  & (0.092) & (0.110) & (1,051.393) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 120 & 120 & 120 \\ 
+R$^{2}$ & 0.691 & 0.698 & 0.695 \\ 
+Adjusted R$^{2}$ & 0.562 & 0.572 & 0.567 \\ 
+Residual Std. Error (df = 84) & 0.320 & 0.383 & 3,673.441 \\ 
+F Statistic (df = 35; 84) & 5.365$^{***}$ & 5.545$^{***}$ & 5.457$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:37 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Win Shares as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & Defensive Win Shares & Offensive Win Shares & Win Shares & Win Shares per 48 minutes \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & 0.476 & 1.017$^{*}$ & 1.513$^{*}$ & 0.020 \\ 
+  & (0.361) & (0.574) & (0.782) & (0.018) \\ 
+  & & & & \\ 
+ Average Minutes Played & $-$0.043 & 0.054 & 0.012 & $-$0.002 \\ 
+  & (0.032) & (0.050) & (0.069) & (0.002) \\ 
+  & & & & \\ 
+ Position & 0.00000$^{***}$ & 0.00000$^{***}$ & 0.00000$^{***}$ & 0.000$^{***}$ \\ 
+  & (0.00000) & (0.00000) & (0.00000) & (0.000) \\ 
+  & & & & \\ 
+ Current Salary & 1.591$^{**}$ & $-$1.044 & 0.519 & 0.069$^{**}$ \\ 
+  & (0.688) & (1.094) & (1.490) & (0.034) \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  &  \\ 
+Year Fixed Effects & Yes &  &  &  \\ 
+Observations & 120 & 120 & 120 & 120 \\ 
+R$^{2}$ & 0.619 & 0.652 & 0.653 & 0.516 \\ 
+Adjusted R$^{2}$ & 0.461 & 0.507 & 0.508 & 0.314 \\ 
+Residual Std. Error (df = 84) & 2.405 & 3.822 & 5.206 & 0.119 \\ 
+F Statistic (df = 35; 84) & 3.906$^{***}$ & 4.493$^{***}$ & 4.512$^{***}$ & 2.555$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Jun 02, 2020 - 10:55:36 PM
+\begin{table}[!htbp] \centering 
+  \caption{Using Speed Metrics as the Dependent Variable} 
+  \label{} 
+  \scalebox{0.7}{
+\begin{tabular}{@{\extracolsep{5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & Average Speed & Offensive Speed & Defensive Speed \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ Contract Year & $-$0.044 & $-$0.009 & $-$0.037 \\ 
+  & (0.049) & (0.081) & (0.054) \\ 
+  & & & \\ 
+ Average Minutes Played & $-$0.011$^{**}$ & $-$0.010 & $-$0.015$^{***}$ \\ 
+  & (0.004) & (0.007) & (0.005) \\ 
+  & & & \\ 
+ Position & $-$0.000$^{**}$ & $-$0.00000$^{***}$ & 0.000 \\ 
+  & (0.000) & (0.000) & (0.000) \\ 
+  & & & \\ 
+ Current Salary & 4.593$^{***}$ & 4.957$^{***}$ & 4.313$^{***}$ \\ 
+  & (0.094) & (0.155) & (0.103) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Team Fixed Effects & Yes &  &  \\ 
+Year Fixed Effects & Yes &  &  \\ 
+Observations & 120 & 120 & 120 \\ 
+R$^{2}$ & 0.731 & 0.618 & 0.655 \\ 
+Adjusted R$^{2}$ & 0.619 & 0.459 & 0.512 \\ 
+Residual Std. Error (df = 84) & 0.329 & 0.542 & 0.359 \\ 
+F Statistic (df = 35; 84) & 6.529$^{***}$ & 3.887$^{***}$ & 4.563$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
+
+
+
+
+
+\begin{table}
+\setlength\tabcolsep{0pt} % let LaTeX figure out amount of inter-column whitespace
+\caption{Double Lasso}
+\label{turns}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l *{4}{d{2.4}} }
+\toprule
+ & \multicolumn{4}{c}{\textit{Dependent Variable}: Offensive Win Share} \\
+ & \multicolumn{1}{c}{Estimate} & \multicolumn{1}{c}{Std Error} & \multicolumn{1}{c}{t value} & \multicolumn{1}{c}{($Pr>|t|$)} \\
+\midrule
+Contract Year   & -0.06917 & 0.13893 & -0.498 & 0.619 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\small
+\note  Observations: 621
+\end{tablenotes}
+\end{table}
+
+
+
+\end{document}
