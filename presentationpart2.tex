@@ -1,4 +1,4 @@
-\documentclass[12pt,aspectratio=169]{beamer} %for wide screen, use aspectratio=169
+\documentclass[12pt,aspectratio=916]{beamer} %for wide screen, use aspectratio=169
 \usepackage{extramarks}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -155,14 +155,6 @@
 \end{itemize}	
 \end{frame}
 
-\begin{frame}{Summary Statistics}
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{bkdwn}\
-\end{figure}
-
-\end{frame}
-
 
 %===============================================================%
 \section{Data Collection}
@@ -277,7 +269,7 @@ When combining datasets from three different sources, the amount of observations
 %===============================================================%
 \section{Data}
 %===============================================================%
-\tiny
+\small
 
 \begin{frame}{Individual Fixed Effect OLS}
 
@@ -322,162 +314,9 @@ When combining datasets from three different sources, the amount of observations
 
 \end{frame}
 
-\begin{frame}{Individual Fixed Effect OLS}
-
-\begin{table}[!htbp] \centering 
-	\caption{Using Win Shares as the Dependent Variable} 
-	\label{} 
-	\scalebox{0.7}{
-		\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
-			\\[-1.8ex]\hline 
-			\hline \\[-1.8ex] 
-			& \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
-			\cline{2-5} 
-			\\[-1.8ex] & Defensive Win Shares & Offensive Win Shares & Win Shares & Win Shares per 48 minutes \\ 
-			\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
-			\hline \\[-1.8ex] 
-			Contract Year & 0.09213 & 0.08593 & 0.196 & -0.0002153 \\ 
-			& (0.06077) & (0.1135) & (0.146) & (0.0035) \\ 
-			& & & & \\ 
-			Average Minutes Played & 0.06228$^{***}$ & 0.1335$^{***}$ & 0.196$^{***}$ & $-$0.002308$^{***}$ \\ 
-			& (0.006165) & (0.01152) & (0.01485) & (0.0003551) \\ 
-			& & & & \\ 
-			Current Salary & $-$0.000 & $-$0.000$^{***}$ & $-$0.000$^{***}$ & $-$0.000$^{*}$ \\ 
-			& (0.000) & (0.000) & (0.000) & (0.000) \\ 
-			& & & & \\ 
-			Constant & $-$0.008 & $-$0.450 & $-$0.494 & 0.033 \\ 
-			& (0.871) & (1.627) & (2.098) & (0.050) \\ 
-			& & & & \\ 
-			\hline \\[-1.8ex] 
-			Player Fixed Effects & Yes & Yes & Yes & Yes \\ 
-			Year Fixed Effects & Yes & Yes & Yes & Yes \\ 
-			Position & Yes & Yes & Yes & Yes \\ 
-			Observations & 1,133 & 1,133 & 1,133 & 1,133 \\ 
-			R$^{2}$ & 0.791 & 0.827 & 0.840 & 0.798 \\ 
-			Adjusted R$^{2}$ & 0.650 & 0.710 & 0.731 & 0.661 \\ 
-			Residual Std. Error (df = 676) & 2.990 & 5.586 & 7.204 & 0.172 \\ 
-			F Statistic (df = 456; 676) & 5.605$^{***}$ & 7.072$^{***}$ & 7.756$^{***}$ & 5.840$^{***}$ \\ 
-			\hline 
-			\hline \\[-1.8ex] 
-			\textit{Note:} {$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-	\end{tabular} }
-\end{table} 
-
-\end{frame}
-
-\begin{frame}{Team Fixed Effect OLS}
-
-% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Jun 02, 2020 - 10:55:37 PM
-\begin{table}[!htbp] \centering 
-	\caption{Using Win Shares as the Dependent Variable} 
-	\label{} 
-	\scalebox{0.7}{
-		\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
-			\\[-1.8ex]\hline 
-			\hline \\[-1.8ex] 
-			& \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
-			\cline{2-5} 
-			\\[-1.8ex] & Defensive Win Shares & Offensive Win Shares & Win Shares & Win Shares per 48 minutes \\ 
-			\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
-			\hline \\[-1.8ex] 
-			Contract Year & 0.476 & 1.017$^{*}$ & 1.513$^{*}$ & 0.020 \\ 
-			& (0.361) & (0.574) & (0.782) & (0.018) \\ 
-			& & & & \\ 
-			Average Minutes Played & $-$0.043 & 0.054 & 0.012 & $-$0.002 \\ 
-			& (0.032) & (0.050) & (0.069) & (0.002) \\ 
-			& & & & \\ 
-			Position & 0.00000$^{***}$ & 0.00000$^{***}$ & 0.00000$^{***}$ & 0.000$^{***}$ \\ 
-			& (0.00000) & (0.00000) & (0.00000) & (0.000) \\ 
-			& & & & \\ 
-			Current Salary & 1.591$^{**}$ & $-$1.044 & 0.519 & 0.069$^{**}$ \\ 
-			& (0.688) & (1.094) & (1.490) & (0.034) \\ 
-			& & & & \\ 
-			\hline \\[-1.8ex] 
-			Team Fixed Effects & Yes & Yes & Yes & Yes \\ 
-			Year Fixed Effects & Yes & Yes & Yes & Yes \\ 
-			Observations & 120 & 120 & 120 & 120 \\ 
-			R$^{2}$ & 0.619 & 0.652 & 0.653 & 0.516 \\ 
-			Adjusted R$^{2}$ & 0.461 & 0.507 & 0.508 & 0.314 \\ 
-			Residual Std. Error (df = 84) & 2.405 & 3.822 & 5.206 & 0.119 \\ 
-			F Statistic (df = 35; 84) & 3.906$^{***}$ & 4.493$^{***}$ & 4.512$^{***}$ & 2.555$^{***}$ \\ 
-			\hline 
-			\hline \\[-1.8ex] 
-			\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-	\end{tabular} }
-\end{table} 
-
-\end{frame}
-
-
-
-\begin{frame}{Double Lasso on Individual}
-
-\begin{table}\centering 
-	\caption{Double Lasso: Using Offensive Win Share as the Dependent Variable} 
-	\label{} 
-	\scalebox{1.2}{
-		\begin{tabular}{@{\extracolsep{5pt}}lc} 
-			\\[-1.8ex]\hline 
-			\hline \\[-1.8ex] 
-			& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-			\cline{2-2} 
-			\\[-1.8ex] & Offensive Win Share \\ 
-			\hline \\[-1.8ex] 
-			Contract Year & -0.06917 \\ 
-			& (0.13893) \\ 
-			& \text{p-value}:\quad 0.619 \\
-			& \\ 
-			\hline \\[-1.8ex] 
-			Player Fixed Effects & Yes \\ 
-			Year Fixed Effects & Yes \\ 
-			Observations & 621 \\ 
-			\hline 
-			\hline \\[-1.8ex] 
-			\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-	\end{tabular}} 
-\end{table} 
-
-\end{frame}
-
-\begin{frame}{Double Lasso on Individual: multiple inference variables}
-
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.5\linewidth]{lasso_with_multiple_inf}
-		\caption{}
-		\label{fig:lassowithmultipleinf}
-	\end{figure}
-	
-
-\end{frame}
-
 %===============================================================%
 \section{Conclusion}
 %===============================================================%
-
-\normalsize
-
-\begin{frame}{Discussion of Results}
-
-Can we reject the hypothesis?
-
-\begin{itemize}
-	\item Consistent with literature estimating a small contract year effect
-	\item Statistically non-significant.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Policy Implications}
-
-\begin{itemize}
-	\item It may not be fruitful to try to optimize team performance by "staggering" or shortening contracts.
-	\item Media fixation on one or two examples of the contract year effect might simply be anomalous un-representative samples.
-\end{itemize}
-
-\end{frame}
 
 
 {\BackgroundShaded
