@@ -780,7 +780,6 @@ plot(lassoeff)
 print(dlasso)
 summary(dlasso)
 
-D
 confint(dlasso)
 plot(dlasso)
 
